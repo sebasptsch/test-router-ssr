@@ -1,5 +1,4 @@
 /// <reference types="vinxi/types/server" />
-import * as React from 'react'
 import { renderToPipeableStream } from 'react-dom/server'
 import { eventHandler, getResponseHeaders, toWebRequest } from 'vinxi/server'
 import { getManifest } from 'vinxi/manifest'
