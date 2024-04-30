@@ -143,16 +143,18 @@ export default eventHandler(async (event) => {
 
   // Remove server function headers
   ;[serverFnReturnTypeHeader, serverFnPayloadTypeHeader].forEach((header) => {
+    // @ts-ignore no template literal
     delete headers[header]
   })
 
-  // Dedupe headers
+  // @ts-ignore no template literal
   headers = dedupeHeaders(Object.entries(headers))
 
   return new Response(transformedStream as any, {
     status: router.state.statusCode,
     statusText:
       router.state.statusCode === 200 ? 'OK' : 'Internal Server Error',
+      // @ts-ignore no template literal
     headers,
   })
 })
