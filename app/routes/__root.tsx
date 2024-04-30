@@ -6,6 +6,7 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { Meta, Scripts } from '@tanstack/react-router-server/client'
+import '../style.css'
 
 export const Route = createRootRouteWithContext<{
   assets: React.ReactNode
@@ -21,11 +22,6 @@ export const Route = createRootRouteWithContext<{
       rel: 'apple-touch-icon',
       sizes: '180x180',
       href: '/favicons/apple-touch-icon.png',
-    },
-  ],
-  scripts: () => [
-    {
-      src: 'https://cdn.tailwindcss.com',
     },
   ],
 })
