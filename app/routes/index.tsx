@@ -1,10 +1,24 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { SessionConfig, useSession } from 'vinxi/http'
 
-function getData() {
+async function getData() {
   'use server'
 
+  const sesh = await useSession({
+    password: 'password12345678901011213134esrdtfghbjnkmldcfgvbhjnmkldfgcvhbjnkmldfghbjlkm',
+  } as SessionConfig)
+
+  await sesh.update({
+    user: {
+      id: 1,
+      name: 'John Doe',
+    },
+  })
+
+  const seshUser = await sesh.data
+
   return new Promise<string>((r) => {
-    setTimeout(() => r('Server: Welcome home!'), 1000)
+    setTimeout(() => r('Server: Welcome home!' + JSON.stringify(sesh.data)), 1000)
   })
 }
 

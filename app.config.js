@@ -4,6 +4,11 @@ import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 import { createApp } from 'vinxi'
 
 export default createApp({
+  server: {
+    experimental: {
+      asyncContext: true,
+    }
+  },
   routers: [
     {
       name: 'public',
